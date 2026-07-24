@@ -1,0 +1,103 @@
+.contact {
+    min-height: 78vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 22px;
+    padding: 70px 20px;
+    text-align: center;
+}
+
+/* ---------- EMAIL ---------- */
+.email p {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-style: italic;
+    font-size: clamp(24px, 4vw, 42px);
+    color: var(--ink);
+    padding-bottom: 6px;
+    border-bottom: 3px solid var(--coral);
+    opacity: 0;
+    animation: fadeUp 0.7s ease forwards;
+    animation-delay: 0.1s;
+    transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+.email p:hover {
+    color: var(--coral);
+}
+
+/* ---------- SOCIAL LINKS ---------- */
+.Facebook,
+.Instagram,
+.Tiktok {
+    opacity: 0;
+    animation: fadeUp 0.6s ease forwards;
+}
+
+.Facebook { animation-delay: 0.25s; }
+.Instagram { animation-delay: 0.35s; }
+.Tiktok { animation-delay: 0.45s; }
+
+.Facebook a,
+.Instagram a,
+.Tiktok a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 220px;
+    text-decoration: none;
+    color: var(--ink);
+    background-color: var(--white);
+    border: 2px solid var(--ink);
+    padding: 13px 34px;
+    border-radius: 40px;
+    font-weight: 600;
+    font-size: 15px;
+    letter-spacing: 0.3px;
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+.Facebook a:hover {
+    background-color: var(--teal);
+    border-color: var(--teal);
+    color: var(--white);
+    transform: translateY(-4px);
+}
+
+.Instagram a:hover {
+    background-color: var(--coral);
+    border-color: var(--coral);
+    color: var(--white);
+    transform: translateY(-4px);
+}
+
+.Tiktok a:hover {
+    background-color: var(--ink);
+    color: var(--white);
+    transform: translateY(-4px);
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 600px) {
+    .contact {
+        gap: 16px;
+        padding: 50px 20px;
+    }
+
+    .Facebook a,
+    .Instagram a,
+    .Tiktok a {
+        min-width: 200px;
+        padding: 12px 26px;
+        font-size: 14px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.001ms !important;
+        transition-duration: 0.001ms !important;
+    }
+}

@@ -1,0 +1,217 @@
+.bannar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* gap: 40px; */
+    padding: 0 60px;
+    min-height: 78vh;
+    flex-wrap: wrap;
+}
+
+.about {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 18px;
+}
+
+.eyebrow {
+    font-family: 'Space Mono', monospace;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 13px;
+    color: var(--teal);
+    font-weight: 700;
+    opacity: 0;
+    animation: fadeUp 0.7s ease forwards;
+    animation-delay: 0.1s;
+}
+
+.about h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: clamp(34px, 5vw, 58px);
+    line-height: 1.15;
+    opacity: 0;
+    animation: fadeUp 0.7s ease forwards;
+    animation-delay: 0.25s;
+}
+
+.about h1 span {
+    color: var(--coral);
+    font-style: italic;
+}
+
+.tagline {
+    color: var(--ink-soft);
+    font-size: 17px;
+    max-width: 420px;
+    opacity: 0;
+    animation: fadeUp 0.7s ease forwards;
+    animation-delay: 0.4s;
+}
+
+.cta {
+    align-self: flex-start;
+    text-decoration: none;
+    background-color: var(--ink);
+    color: var(--white);
+    padding: 14px 28px;
+    border-radius: 40px;
+    font-weight: 600;
+    font-size: 15px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    opacity: 0;
+    animation: fadeUp 0.7s ease forwards;
+    animation-delay: 0.55s;
+}
+
+.cta:hover {
+    background-color: var(--coral);
+    transform: translateY(-3px);
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ---------- PROFILE PICTURE ---------- */
+.selfPic {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.blob {
+    position: absolute;
+    width: 380px;
+    height: 380px;
+    background: linear-gradient(135deg, var(--teal), var(--coral));
+    border-radius: 62% 38% 55% 45% / 48% 55% 45% 52%;
+    filter: blur(2px);
+    opacity: 0.85;
+    animation: morph 8s ease-in-out infinite;
+    z-index: 0;
+}
+
+@keyframes morph {
+    0%, 100% { border-radius: 62% 38% 55% 45% / 48% 55% 45% 52%; }
+    50% { border-radius: 45% 55% 40% 60% / 55% 45% 55% 45%; }
+}
+
+.pic {
+    width: fit-content;
+    height: fit-content;
+    border-radius: 50%;
+    background-color: var(--white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    border: 6px solid var(--white);
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 20px 45px rgba(16, 26, 52, 0.18);
+}
+
+.pic img {
+    width: 380px;
+    height: 380px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+/* ---------- SIGNATURE MARQUEE ---------- */
+.marquee {
+    background-color: var(--ink);
+    padding: 16px 0;
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+.marquee-track {
+    display: flex;
+    gap: 26px;
+    white-space: nowrap;
+    width: max-content;
+    animation: scroll 18s linear infinite;
+}
+
+.marquee-track span {
+    font-family: 'Space Mono', monospace;
+    text-transform: uppercase;
+    font-size: 15px;
+    letter-spacing: 1px;
+    color: var(--white);
+}
+
+.marquee-track span:nth-child(even) {
+    color: var(--teal);
+}
+
+@keyframes scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 900px) {
+    .bannar {
+        padding: 0 30px;
+        min-height: auto;
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+
+    .about, .selfPic {
+        width: 100%;
+    }
+
+    .about {
+        order: 2;
+        align-items: center;
+        text-align: center;
+    }
+
+    .about h1, .tagline {
+        max-width: 100%;
+    }
+
+    .cta {
+        align-self: center;
+    }
+
+    .selfPic {
+        order: 1;
+        margin-bottom: 20px;
+    }
+
+    .blob, .pic img {
+        width: 260px;
+        height: 260px;
+    }
+
+    .pic img {
+        width: 240px;
+        height: 240px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .blob {
+        animation: none;
+    }
+    .marquee-track {
+        animation: none;
+    }
+}
